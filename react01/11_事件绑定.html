@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+</body>
+<script type="text/babel">
+    let app = document.querySelector("#app")
+    //直接绑定
+    class Comp1 extends React.Component {
+        constructor(props){
+            super()
+            this.state = {
+                num :1
+            }
+        }
+        render(){
+            return <div>
+                <p>{this.state.num}</p>
+                <button onClick={(ev)=>{
+                    //ev.target获取目标元素进行操作
+                    // console.log(ev.target);
+                    this.setState({
+                        num:this.state.num+1
+                    })
+                }} >+1</button>
+            </div>
+        }
+    }
+
+    ReactDOM.render(<Comp1 />,app);
+</script>
+</html>
